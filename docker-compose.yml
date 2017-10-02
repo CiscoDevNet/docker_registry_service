@@ -1,0 +1,16 @@
+version: "3"
+services:
+# Just a Basic docker Registry as a service.  Used in some DevNet Sandbox environments.
+    registry:
+        ports:
+            - 5000:5000
+        image: registry:latest
+        networks:
+            - registry
+        environment:
+            dnsrr: "true"
+        hostname: registry
+
+networks:
+    registry:
+        driver: overlay
